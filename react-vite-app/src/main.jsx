@@ -1,7 +1,7 @@
 import {createRoot} from 'react-dom/client';
 import {css} from '@emotion/css';
 import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
-import {useCallback, useState} from 'react';
+import {useCallback, useRef, useState} from 'react';
 
 import {Nav} from './components/Nav';
 
@@ -15,6 +15,7 @@ import './styles/index.scss';
 import {ScrollToTop} from './components/ScrollToTop';
 
 const App = ({magic}) => {
+  const outerContainerDomRef = useRef(null);
   const [tik, setTik] = useState(null);
 
   const navCloseNotifierWhenRouting = useCallback((e) => {
@@ -24,11 +25,31 @@ const App = ({magic}) => {
   const location = useLocation();
 
   return (
-    <>
+    <div
+      ref={outerContainerDomRef}
+      id="outer-container"
+      className={css`
+        position: absolute;
+        width: 100%;
+        &.nav-active {
+          height: 100%;
+        }
+      `}
+    >
       <ScrollToTop />
-      {/* not work after build with react18 but work on dev mode */}
-      <Nav tik={tik} />
-      <main>
+      <Nav
+        tik={tik}
+        isRight={true}
+        outerContainerDomRef={outerContainerDomRef}
+      />
+      <main
+        id="page-wrap"
+        className={css`
+          width: 100%;
+          height: 100%;
+          background: wheat;
+        `}
+      >
         <article>
           <Routes location={location}>
             <Route
@@ -81,7 +102,7 @@ const App = ({magic}) => {
       >
         Bye
       </footer>
-    </>
+    </div>
   );
 };
 

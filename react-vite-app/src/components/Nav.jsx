@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import {css} from '@emotion/css';
 import {
-  slide as Menu,
+  slide,
   bubble,
   elastic,
   reveal,
@@ -10,11 +10,11 @@ import {
   fallDown,
   push,
   pushRotate,
-  scaleDown,
+  scaleDown as Menu,
 } from 'react-burger-menu';
 import {useEffect, useState} from 'react';
 
-const Nav = ({tik}) => {
+const Nav = ({tik, isRight = false, outerContainerDomRef}) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -39,6 +39,8 @@ const Nav = ({tik}) => {
           height: 30px;
           top: 36px;
           right: 36px;
+          left: ${isRight ? 'initial' : '36px'};
+          right: ${isRight ? '36px' : 'initial'};
         }
 
         // Outline for burger button focus state
@@ -99,10 +101,17 @@ const Nav = ({tik}) => {
       <Menu
         isOpen={open}
         onStateChange={(e) => {
-          // console.log(e);
+          const outerContainerDom = outerContainerDomRef.current;
+          if (e.isOpen) {
+            outerContainerDom.classList.add('nav-active');
+          } else {
+            outerContainerDom.classList.remove('nav-active');
+          }
           setOpen(e.isOpen);
         }}
-        right={true}
+        pageWrapId={'page-wrap'}
+        outerContainerId={'outer-container'}
+        right={isRight}
       >
         <Link to={'/'}>Home</Link>
         <Link to={'/about'}>About</Link>
