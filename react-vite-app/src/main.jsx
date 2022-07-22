@@ -32,6 +32,8 @@ const App = ({magic}) => {
         position: absolute;
         width: 100%;
         &.nav-active {
+          touch-action: none;
+          overflow: hidden;
           height: 100%;
         }
       `}
