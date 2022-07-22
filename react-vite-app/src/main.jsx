@@ -14,7 +14,7 @@ import '@fontsource/inter';
 import './styles/index.scss';
 import {ScrollToTop} from './components/ScrollToTop';
 
-const App = ({magic}) => {
+const App = () => {
   const outerContainerDomRef = useRef(null);
   const [tik, setTik] = useState(null);
 
@@ -114,6 +114,6 @@ const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
-    <App magic={0} />
+    <App />
   </BrowserRouter>
 );
