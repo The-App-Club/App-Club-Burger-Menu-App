@@ -1,13 +1,13 @@
 import {css, cx} from '@emotion/css';
 import {default as Layout} from '../../layouts/default';
-import {Link, useLocation} from 'react-router-dom';
+import {default as LayoutItem} from '../../layouts/item';
+import {Link, useLocation, Navigate} from 'react-router-dom';
 import {useMemo} from 'react';
 import {Spacer} from '../../components/Spacer';
 import {Button} from '@mui/material';
+import {Slider} from '../../components/Slider';
 import '@fontsource/kaushan-script';
-
-import {Splide, SplideSlide} from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import {useEffect} from 'react';
 
 const ProductPage = ({pageName, notifier}) => {
   const location = useLocation();
@@ -15,6 +15,11 @@ const ProductPage = ({pageName, notifier}) => {
     const {state} = location;
     return state;
   }, [location]);
+
+  if (!itemInfo) {
+    return <Navigate to="/products" />;
+  }
+
   return (
     <Layout pageName={pageName} notifier={notifier}>
       <section
@@ -53,7 +58,7 @@ const ProductPage = ({pageName, notifier}) => {
                 left: 0;
               `}
             >
-              <Link to={`/products`}>Back to Products</Link>
+              <Link to={`/products`}>Back</Link>
             </div>
             <h2
               className={css`
@@ -69,7 +74,10 @@ const ProductPage = ({pageName, notifier}) => {
             height={`3rem`}
             className={css`
               @media (max-width: 1400px) {
-                height: 0.5rem;
+                height: 1.5rem;
+              }
+              @media (max-width: 768px) {
+                height: 2rem;
               }
             `}
           />
@@ -88,7 +96,7 @@ const ProductPage = ({pageName, notifier}) => {
 
               .div1 {
                 grid-area: 1 / 1 / 3 / 3;
-                background-size: cover;
+                background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center center;
                 :hover {
@@ -104,18 +112,43 @@ const ProductPage = ({pageName, notifier}) => {
               .div4 {
                 grid-area: 1 / 3 / 5 / 4;
               }
+
+              @media (max-width: 768px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                .div1 {
+                  grid-area: 1 / 1 / 2 / 3 !important;
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  :hover {
+                    cursor: pointer;
+                  }
+                  max-height: 22rem;
+                  height: 100%;
+                  overflow: hidden;
+                }
+                .div2 {
+                  grid-area: 2 / 1 / 3 / 2 !important;
+                }
+                .div3 {
+                  grid-area: 3 / 1 / 4 / 3 !important;
+                }
+                .div4 {
+                  grid-area: 2 / 2 / 3 / 3 !important;
+                }
+              }
             `}
           >
-            <div
+            <LayoutItem
               className={cx(
                 css`
                   background-image: url(${itemInfo.imageURL});
                 `,
                 'div1'
               )}
-            >
-              {' '}
-            </div>
+            ></LayoutItem>
             <div className="div2">
               <p
                 className={css`
@@ -132,74 +165,7 @@ const ProductPage = ({pageName, notifier}) => {
               </p>
             </div>
             <div className="div3">
-              <Splide
-                aria-label="relative item list"
-                className={css`
-                  height: 100%;
-                  div {
-                    position: absolute;
-                    width: 100%;
-                    min-height: 8rem;
-                    height: 100%;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                    :hover {
-                      cursor: pointer;
-                    }
-                  }
-                `}
-              >
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${123}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${223}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${323}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${423}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${523}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${623}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-                <SplideSlide>
-                  <div
-                    className={css`
-                      background-image: url(https://picsum.photos/seed/${723}/1200/800);
-                    `}
-                  />
-                </SplideSlide>
-              </Splide>
+              <Slider />
             </div>
             <div
               className={cx(

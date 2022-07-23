@@ -91,7 +91,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item1`,
                     imageURL: `https://picsum.photos/seed/${123}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });
@@ -109,7 +110,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item2`,
                     imageURL: `https://picsum.photos/seed/${223}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });
@@ -127,7 +129,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item3`,
                     imageURL: `https://picsum.photos/seed/${323}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });
@@ -145,7 +148,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item4`,
                     imageURL: `https://picsum.photos/seed/${423}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });
@@ -163,7 +167,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item5`,
                     imageURL: `https://picsum.photos/seed/${523}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });
@@ -181,7 +186,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item6`,
                     imageURL: `https://picsum.photos/seed/${623}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });
@@ -199,7 +205,8 @@ const ProductsPage = ({pageName, notifier}) => {
                   state: {
                     name: `item7`,
                     imageURL: `https://picsum.photos/seed/${723}/1200/800`,
-                    description: lorem.generateSentences(2),
+                    // description: lorem.generateSentences(2),
+                    description: `Proident reprehenderit adipisicing irure aute eu laboris consequat aute adipisicing do culpa fugiat mollit. Esse deserunt excepteur laboris dolor nulla ea cillum nisi consectetur nisi pariatur.`,
                     price: chance().integer({min: 200, max: 2000}),
                   },
                 });

@@ -51,7 +51,7 @@ const App = () => {
         className={css`
           width: 100%;
           height: 100%;
-          background: wheat;
+          background: transparent;
         `}
       >
         <article>
