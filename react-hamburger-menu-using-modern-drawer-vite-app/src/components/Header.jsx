@@ -36,6 +36,7 @@ const Header = ({isOpen, setIsOpen}) => {
       >
         <div
           className={css`
+            width: 100%;
             position: absolute;
             top: 0;
             left: 0;
@@ -50,7 +51,16 @@ const Header = ({isOpen, setIsOpen}) => {
           }}
         >
           <img src={logo} alt={`logo`} height={40} />
-          <h2>Bebop Site</h2>
+          <h2
+            className={css`
+              font-size: 1rem;
+              @media (max-width: 768px) {
+                font-size: 0.95rem;
+              }
+            `}
+          >
+            Bebop Site
+          </h2>
         </div>
         <button
           className={cx(
